@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoCharge — Powering India's Electric Future, Sustainably</title>
+<meta name="description" content="A distributed solar-powered EV charging network built for a cleaner, greener, smarter tomorrow. Download the EcoCharge app for Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#0E3B26;
+    --green-700:#186B41;
+    --green-600:#1E8A52;
+    --green-500:#2AAE6B;
+    --green-100:#E4F3E9;
+    --ink:#12271C;
+    --ink-dim:#4C6157;
+    --paper:#FBFBF7;
+    --line: rgba(14,59,38,0.12);
+    --gold:#F2B14A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.05;margin:0;letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+  section{scroll-margin-top:90px;}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(251,251,247,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px;}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-weight:700;font-size:21px;color:var(--green-900);}
+  .navlinks{display:flex;gap:32px;font-size:14.5px;font-weight:600;color:var(--ink-dim);}
+  .navlinks a{padding-bottom:4px;border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease;}
+  .navlinks a:hover{color:var(--green-700);border-color:var(--green-600);}
+  @media (max-width:800px){.navlinks{display:none;}}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:14.5px;white-space:nowrap;}
+  .btn-solid{background:var(--green-700);color:#fff;transition:background .18s ease,transform .18s ease;}
+  .btn-solid:hover{background:var(--green-900);transform:translateY(-1px);}
+  .btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--line);transition:border-color .15s ease;}
+  .btn-outline:hover{border-color:var(--green-600);}
+
+  /* hero */
+  .hero{padding:64px 0 0;overflow:hidden;}
+  .kicker{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--green-700);margin-bottom:18px;}
+  .kicker .x{opacity:.45;}
+  .hero h1.mark{font-size:clamp(48px,7.5vw,84px);color:var(--green-700);margin-bottom:6px;}
+  .hero h1.mark .dark{color:var(--green-900);}
+  .hero h2.tag{font-size:clamp(24px,3.4vw,38px);color:var(--green-900);max-width:15ch;margin-top:6px;}
+  .hero-sub{margin-top:20px;font-size:16.5px;line-height:1.6;color:var(--ink-dim);max-width:46ch;}
+  .hero-actions{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;}
+
+  .hero-media{position:relative;margin-top:54px;border-radius:28px;overflow:hidden;}
+  .hero-media svg{display:block;width:100%;height:auto;}
+  .hero-caption{
+    position:absolute;top:26px;right:34px;font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    color:#fff;font-size:19px;line-height:1.35;text-align:right;text-shadow:0 2px 10px rgba(0,0,0,0.25);
+    transform:rotate(-3deg);
+  }
+
+  /* opportunity */
+  .opportunity{padding:76px 0 40px;}
+  .opp-head{max-width:520px;margin-bottom:34px;}
+  .opp-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--green-700);margin-bottom:10px;}
+  .opp-head h2{font-size:clamp(24px,3vw,32px);color:var(--green-900);}
+  .opp-head p{margin-top:12px;font-size:15.5px;color:var(--ink-dim);line-height:1.6;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:700px){.stat-row{grid-template-columns:1fr;}}
+  .stat-card{background:var(--green-100);border-radius:16px;padding:26px;}
+  .stat-icon{width:42px;height:42px;border-radius:12px;background:var(--green-700);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .stat-num{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:var(--green-900);}
+  .stat-lbl{font-size:13.5px;color:var(--ink-dim);margin-top:6px;line-height:1.5;}
+
+  /* generic section head */
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--green-700);margin-bottom:10px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,36px);color:var(--green-900);}
+  .section-head p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink-dim);}
+
+  /* about */
+  .about{padding:20px 0 90px;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+  .about-copy p{font-size:15.5px;line-height:1.7;color:var(--ink-dim);margin-bottom:16px;}
+  .pillars{margin-top:26px;display:flex;flex-direction:column;gap:16px;}
+  .pillar{display:flex;gap:14px;align-items:flex-start;}
+  .pillar-dot{width:8px;height:8px;border-radius:50%;background:var(--green-600);margin-top:8px;flex-shrink:0;}
+  .pillar b{color:var(--ink);}
+  .about-diagram{background:var(--green-100);border-radius:22px;padding:36px 28px;}
+  .about-diagram svg{width:100%;height:auto;display:block;}
+  .about-diagram-cap{margin-top:18px;font-size:13.5px;color:var(--ink-dim);text-align:center;line-height:1.55;}
+
+  /* features */
+  .features{padding:20px 0 90px;background:var(--green-100);}
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+  @media (max-width:900px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.feature-grid{grid-template-columns:1fr;}}
+  .feature{background:var(--paper);padding:32px 26px;}
+  .feature .icn{width:40px;height:40px;border-radius:11px;background:var(--green-700);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .feature h3{font-size:17px;font-weight:700;margin-bottom:9px;color:var(--ink);}
+  .feature p{font-size:14px;line-height:1.55;color:var(--ink-dim);}
+
+  /* impact */
+  .impact{padding:20px 0 90px;}
+  .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:40px;}
+  @media (max-width:800px){.impact-grid{grid-template-columns:1fr;}}
+  .impact-card{background:var(--green-900);color:#fff;border-radius:18px;padding:30px;}
+  .impact-card.alt{background:var(--green-700);}
+  .impact-card h3{font-size:18px;color:#fff;margin-bottom:10px;}
+  .impact-card p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,0.82);}
+  .impact-note{
+    background:var(--green-100);border-radius:14px;padding:20px 24px;font-size:14px;line-height:1.6;color:var(--ink-dim);
+    border-left:3px solid var(--green-600);
+  }
+  .impact-note b{color:var(--ink);}
+
+  /* download */
+  .download{background:var(--green-900);color:#fff;padding:88px 0;}
+  .dl-head{max-width:600px;margin-bottom:44px;}
+  .dl-head h2{font-size:clamp(26px,3.2vw,36px);color:#fff;}
+  .dl-head p{margin-top:14px;font-size:16px;color:rgba(255,255,255,0.72);line-height:1.6;}
+  .dl-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:18px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:46px;}
+  .dl-info{display:flex;align-items:center;gap:16px;}
+  .dl-icon{width:56px;height:56px;border-radius:14px;background:var(--green-700);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .dl-info h3{font-size:18px;color:#fff;margin-bottom:5px;}
+  .dl-specs{font-size:13px;color:rgba(255,255,255,0.6);display:flex;gap:8px;flex-wrap:wrap;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:800px){.steps{grid-template-columns:1fr;}}
+  .step{border-top:1px solid rgba(255,255,255,0.14);padding-top:18px;}
+  .step .num{font-family:'Fraunces',serif;font-size:26px;color:var(--gold);display:block;margin-bottom:10px;}
+  .step h4{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:7px;}
+  .step p{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.65);}
+  .caution{margin-top:40px;padding:16px 20px;border-radius:12px;background:rgba(242,177,74,0.12);border:1px solid rgba(242,177,74,0.32);font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.78);}
+  .caution b{color:#fff;}
+
+  footer{padding:26px 0;background:var(--green-100);}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  footer .brand{font-size:16px;}
+  footer .tags{font-size:13px;color:var(--ink-dim);font-weight:600;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 4 4 8 4 13a8 8 0 0 0 16 0c0-5-3-9-8-11z" fill="#1E8A52"/><path d="M12 5v14" stroke="#0E3B26" stroke-width="1.4"/></svg>
+      EcoCharge
+    </div>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#impact">Impact</a>
+    </div>
+    <a class="btn btn-solid" href="https://github.com/remianasaurez-lang/EcoChargeWeb/releases/download/v1/ecocharge.apk" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download App
+    </a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="kicker">CLEAN ENERGY <span class="x">×</span> SMART CHARGING <span class="x">×</span> A GREENER INDIA</div>
+    <h1 class="mark">Eco<span class="dark">Charge</span></h1>
+    <h2 class="tag">Powering India's Electric Future — Sustainably.</h2>
+    <p class="hero-sub">A distributed solar-powered EV charging network built for a cleaner, greener and smarter tomorrow.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#download">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download App
+      </a>
+      <a class="btn btn-outline" href="#about">Learn more</a>
+    </div>
+
+    <div class="hero-media">
+      <svg viewBox="0 0 1200 480" width="100%" style="display:block;">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#BFE3F0"/>
+            <stop offset="55%" stop-color="#EAD9B8"/>
+            <stop offset="100%" stop-color="#F4E7CE"/>
+          </linearGradient>
+          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7FB878"/>
+            <stop offset="100%" stop-color="#5C9D5A"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="480" fill="url(#sky)"/>
+        <circle cx="1030" cy="150" r="70" fill="#FBE49A" opacity="0.9"/>
+        <g opacity="0.28" fill="#3E6B4A">
+          <rect x="880" y="240" width="20" height="140"/>
+          <rect x="905" y="200" width="26" height="180"/>
+          <rect x="936" y="260" width="18" height="120"/>
+          <rect x="960" y="220" width="22" height="160"/>
+          <path d="M986 380 L1000 230 L1014 380 Z"/>
+          <rect x="1030" y="250" width="20" height="130"/>
+          <rect x="1058" y="210" width="24" height="170"/>
+        </g>
+        <rect x="0" y="380" width="1200" height="100" fill="url(#ground)"/>
+        <ellipse cx="150" cy="400" rx="240" ry="60" fill="#71AE6C" opacity="0.6"/>
+        <ellipse cx="1050" cy="410" rx="260" ry="55" fill="#68A363" opacity="0.5"/>
+        <g fill="#3E6B4A">
+          <circle cx="70" cy="330" r="40"/><rect x="65" y="360" width="10" height="30"/>
+          <circle cx="1150" cy="300" r="34"/><rect x="1145" y="326" width="8" height="40"/>
+        </g>
+        <g transform="translate(560,90)">
+          <polygon points="0,70 260,40 300,60 40,100" fill="#146338"/>
+          <g fill="#1E5C86">
+            <rect x="10" y="46" width="50" height="34" transform="skewY(-6)"/>
+            <rect x="66" y="40" width="50" height="34" transform="skewY(-6)"/>
+            <rect x="122" y="34" width="50" height="34" transform="skewY(-6)"/>
+            <rect x="178" y="28" width="50" height="34" transform="skewY(-6)"/>
+          </g>
+          <rect x="130" y="98" width="34" height="230" rx="6" fill="#1E8A52"/>
+          <rect x="146" y="150" width="60" height="140" rx="8" fill="#186B41"/>
+          <rect x="156" y="168" width="40" height="24" rx="3" fill="#0E3B26"/>
+          <circle cx="176" cy="215" r="9" fill="#F2B14A"/>
+          <path d="M156 240 q20 -10 40 0" stroke="#0E3B26" stroke-width="3" fill="none"/>
+        </g>
+        <g transform="translate(300,255)">
+          <ellipse cx="230" cy="185" rx="230" ry="18" fill="#0E3B26" opacity="0.18"/>
+          <path d="M20 150 Q10 95 90 85 L300 70 Q360 68 400 105 L455 150 L455 175 L20 175 Z" fill="#F4F4F0"/>
+          <path d="M110 90 Q160 55 260 60 L330 78 L300 100 L120 105 Z" fill="#DCE4E2"/>
+          <circle cx="110" cy="178" r="30" fill="#1B1F1E"/><circle cx="110" cy="178" r="12" fill="#8B9A96"/>
+          <circle cx="380" cy="178" r="30" fill="#1B1F1E"/><circle cx="380" cy="178" r="12" fill="#8B9A96"/>
+          <rect x="30" y="120" width="70" height="22" rx="4" fill="#2AAE6B"/>
+          <path d="M440,150 C465,150 475,135 480,120" stroke="#146338" stroke-width="10" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="640" y="400" font-family="Inter, sans-serif" font-size="15" fill="#0E3B26" font-weight="700" text-anchor="middle" letter-spacing="1">EcoCharge Station</text>
+      </svg>
+      <div class="hero-caption">Clean Energy<br>For a Brighter<br>Tomorrow</div>
+    </div>
+  </div>
+</section>
+
+<section class="opportunity">
+  <div class="wrap">
+    <div class="opp-head">
+      <div class="opp-eyebrow">THE OPPORTUNITY</div>
+      <h2>EV Adoption Is Accelerating</h2>
+      <p>More people. More EVs. A cleaner future. But the charging infrastructure isn't keeping up.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 16l5-6 4 4 6-8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="stat-num">Rising fast</div>
+        <div class="stat-lbl">EV sales are climbing year over year, in cities and highway corridors alike.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="8" width="14" height="7" rx="2" stroke="#fff" stroke-width="1.8"/><circle cx="7" cy="16" r="1.6" fill="#fff"/><circle cx="13" cy="16" r="1.6" fill="#fff"/></svg></div>
+        <div class="stat-num">New registrations</div>
+        <div class="stat-lbl">A growing share of new vehicles on the road are electric.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v8l6 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="10" r="8" stroke="#fff" stroke-width="1.8"/></svg></div>
+        <div class="stat-num">Growing gap</div>
+        <div class="stat-lbl">Charging infrastructure hasn't kept pace with the vehicles that need it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ABOUT ECOCHARGE</div>
+      <h2>Built so your commute doesn't cost the planet</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>EcoCharge started with a simple frustration: EV owners were doing the right thing by going electric, then plugging into a grid that's still mostly coal. We wanted charging that was actually clean, not just quiet.</p>
+        <p>So every EcoCharge station generates and stores its own power on-site. You find it, you plug in, and you can see exactly where that energy came from — no guesswork, no greenwashing.</p>
+        <div class="pillars">
+          <div class="pillar"><span class="pillar-dot"></span><p><b>Generate where you charge.</b> Solar panels on the canopy feed a battery bank right at the station, so power doesn't travel far to reach your car.</p></div>
+          <div class="pillar"><span class="pillar-dot"></span><p><b>Store it for when you need it.</b> Battery storage means stations keep charging after sunset and on cloudy days, not just at noon.</p></div>
+          <div class="pillar"><span class="pillar-dot"></span><p><b>Show you the difference.</b> Every session in the app tells you how much of your charge came from the sun.</p></div>
+        </div>
+      </div>
+      <div class="about-diagram">
+        <svg viewBox="0 0 460 190">
+          <circle cx="48" cy="50" r="24" fill="none" stroke="#F2B14A" stroke-width="2"/>
+          <g stroke="#F2B14A" stroke-width="1.6" stroke-linecap="round">
+            <line x1="48" y1="14" x2="48" y2="4"/><line x1="16" y1="50" x2="6" y2="50"/>
+            <line x1="26" y1="28" x2="19" y2="21"/><line x1="70" y1="28" x2="77" y2="21"/>
+          </g>
+          <text x="48" y="92" text-anchor="middle" font-family="Inter" font-size="12" fill="#12271C" font-weight="700">Sunlight</text>
+          <path d="M74,50 H150" stroke="#4C6157" stroke-width="1.4" stroke-dasharray="3 5"/>
+          <rect x="154" y="26" width="76" height="48" rx="4" fill="none" stroke="#186B41" stroke-width="2"/>
+          <line x1="180" y1="26" x2="180" y2="74" stroke="#186B41" stroke-width="1"/>
+          <line x1="206" y1="26" x2="206" y2="74" stroke="#186B41" stroke-width="1"/>
+          <text x="192" y="92" text-anchor="middle" font-family="Inter" font-size="12" fill="#12271C" font-weight="700">Solar panels</text>
+          <path d="M234,50 H310" stroke="#4C6157" stroke-width="1.4" stroke-dasharray="3 5"/>
+          <rect x="314" y="20" width="42" height="60" rx="6" fill="none" stroke="#186B41" stroke-width="2"/>
+          <rect x="328" y="12" width="14" height="8" rx="2" fill="none" stroke="#186B41" stroke-width="2"/>
+          <line x1="314" y1="40" x2="356" y2="40" stroke="#186B41" stroke-width="1.2"/>
+          <text x="335" y="98" text-anchor="middle" font-family="Inter" font-size="12" fill="#12271C" font-weight="700">Battery storage</text>
+          <path d="M360,50 H420" stroke="#4C6157" stroke-width="1.4" stroke-dasharray="3 5"/>
+          <rect x="424" y="22" width="36" height="56" rx="9" fill="none" stroke="#F2B14A" stroke-width="2"/>
+          <circle cx="434" cy="36" r="2.4" fill="#F2B14A"/><circle cx="450" cy="36" r="2.4" fill="#F2B14A"/>
+          <line x1="442" y1="48" x2="442" y2="58" stroke="#F2B14A" stroke-width="2" stroke-linecap="round"/>
+          <text x="442" y="96" text-anchor="middle" font-family="Inter" font-size="12" fill="#12271C" font-weight="700">Your car</text>
+        </svg>
+        <div class="about-diagram-cap">Sun to socket, generated and stored right at the station — nothing pulled from the coal-heavy grid.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">FEATURES</div>
+      <h2>Everything you need at the charger</h2>
+      <p>One app to find a station, plug in, and see exactly what your charge cost — in money and in carbon.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2c-3.5 0-6 2.7-6 6.2C4 12.4 10 18 10 18s6-5.6 6-9.8C16 4.7 13.5 2 10 2z" stroke="#fff" stroke-width="1.6"/><circle cx="10" cy="8" r="2.2" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h3>Find a station</h3>
+        <p>Search the map for solar-powered chargers near you, filtered by connector type and live availability.</p>
+      </div>
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="#fff" stroke-width="1.6"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="#fff" stroke-width="1.6"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="#fff" stroke-width="1.6"/><path d="M12 12h2v2h-2zM15.5 12h1.5v1.5M12 15.5h1.5V17M15.5 15.5H17V17" stroke="#fff" stroke-width="1.4"/></svg></div>
+        <h3>Reserve, then scan</h3>
+        <p>Hold your spot ahead of time, then scan the code on the charger to start your session in seconds.</p>
+      </div>
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10.5 2 3 12h5l-1.5 6L17 8h-6l1.5-6z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>Watch it charge</h3>
+        <p>Follow your session live, from plug-in to full, and look back through your complete charging history.</p>
+      </div>
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M2 8h16" stroke="#fff" stroke-width="1.6"/><circle cx="14" cy="12.5" r="1.4" fill="#fff"/></svg></div>
+        <h3>Pay from your wallet</h3>
+        <p>Top up once and every session is paid automatically — no card to tap at the charger.</p>
+      </div>
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2c5 2.4 7 4.8 7 9a7 7 0 0 1-14 0c0-4.2 2-6.6 7-9z" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h3>See your impact</h3>
+        <p>Every session shows how much of your charge came from the sun, and how much grid draw it avoided.</p>
+      </div>
+      <div class="feature">
+        <div class="icn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.5" r="3.5" stroke="#fff" stroke-width="1.6"/><path d="M3 18c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5" stroke="#fff" stroke-width="1.6"/></svg></div>
+        <h3>Your profile, remembered</h3>
+        <p>Save your vehicle and connector type once, and every search is filtered to fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">IMPACT</div>
+      <h2>Small choice, real difference</h2>
+      <p>You don't have to change how you drive to make a difference — just where you plug in.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <h3>Less pressure on the grid</h3>
+        <p>Because each station generates and stores its own power, your charge draws on sunlight collected right there — not on peak-hour grid demand that's often met by burning more fossil fuel.</p>
+      </div>
+      <div class="impact-card alt">
+        <h3>Charging keeps going after dark</h3>
+        <p>The battery bank at every station stores the day's sunlight, so you're never stuck waiting for daylight — the sun you charge on might have set hours ago.</p>
+      </div>
+    </div>
+    <div class="impact-note">
+      <b>Why this matters:</b> the electricity grid in most of India is still largely coal-fired. Every session run on stored solar is a session that didn't add to that demand. EcoCharge shows you the split for each charge, so the impact isn't just a claim — it's a number you can see for your own driving.
+    </div>
+  </div>
+</section>
+
+<section class="download" id="download">
+  <div class="wrap">
+    <div class="dl-head">
+      <h2>Get EcoCharge</h2>
+      <p>EcoCharge is distributed directly for Android — no Play Store account needed. Install takes about a minute.</p>
+    </div>
+    <div class="dl-card">
+      <div class="dl-info">
+        <div class="dl-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C8 4.4 5 8.6 5 13.3a8 8 0 0 0 16 0c0-4.7-3-8.9-8-11.3z" fill="#F2B14A"/></svg></div>
+        <div>
+          <h3>EcoCharge for Android</h3>
+          <div class="dl-specs"><span>Version 1.0</span><span>·</span><span>4.2 MB</span><span>·</span><span>com.ecocharge.app</span></div>
+        </div>
+      </div>
+      <a class="btn btn-solid" href="https://github.com/remianasaurez-lang/EcoChargeWeb/releases/download/v1/ecocharge.apk" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download APK
+      </a>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h4>Download the file</h4><p>Tap "Download APK" on your Android phone — it lands in your Downloads folder.</p></div>
+      <div class="step"><span class="num">2</span><h4>Allow this source</h4><p>Approve the "install from this source" prompt in Settings, then go back.</p></div>
+      <div class="step"><span class="num">3</span><h4>Install and open</h4><p>Tap the file, then Install. Open EcoCharge and find your first station.</p></div>
+    </div>
+    <div class="caution"><b>Before you install:</b> only download from a link you trust, and check the package name matches <b>com.ecocharge.app</b> during install. The app only asks for internet access — nothing more.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 4 4 8 4 13a8 8 0 0 0 16 0c0-5-3-9-8-11z" fill="#1E8A52"/></svg>
+      EcoCharge
+    </div>
+    <div class="tags">Clean Energy &nbsp;·&nbsp; Smart Charging &nbsp;·&nbsp; A Greener India</div>
+  </div>
+</footer>
+
+</body>
+</html>
